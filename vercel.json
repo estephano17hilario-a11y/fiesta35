@@ -1,0 +1,13 @@
+{
+  "outputDirectory": "public",
+  "buildCommand": "",
+  "installCommand": "",
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/play", "destination": "/index.html" },
+    { "source": "/jugador", "destination": "/index.html" },
+    { "source": "/pantalla", "destination": "/screen.html" },
+    { "source": "/projector", "destination": "/screen.html" },
+    { "source": "/screen", "destination": "/screen.html" }
+  ]
+}

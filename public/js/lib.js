@@ -20,9 +20,12 @@ export function connect({ role, query = () => ({}), onState, onEvent, onStatus, 
     send('HEARTBEAT', { t0: Date.now(), rtt: api.rtt, ...(telemetry ? telemetry() : {}), visible: !document.hidden });
   }
   function open() {
+    // Frontend en hosting estático (p. ej. Vercel) + servidor en otro lado: ?server=mi-servidor.onrender.com (se recuerda)
+    let host = location.host;
+    try { const q = new URLSearchParams(location.search).get('server'); if (q) localStorage.setItem('f35_server', q.replace(/^https?:///, '')); host = localStorage.getItem('f35_server') || host; } catch { /* sin storage */ }
     const proto = location.protocol === 'https:' ? 'wss' : 'ws';
     const qs = new URLSearchParams({ role, ...query() }).toString();
-    ws = new WebSocket(`${proto}://${location.host}/ws?${qs}`);
+    ws = new WebSocket(`${proto}://${host}/ws?${qs}`);
     ws.onopen = () => { retry = 0; api.open = true; onStatus && onStatus('open'); beat(); clearInterval(hb); hb = setInterval(beat, 5000); };
     ws.onmessage = (e) => {
       const m = JSON.parse(e.data);
