@@ -10,7 +10,7 @@ export function render(vnode, root) {
 
 /** Conexión WebSocket con reconexión, sincronía de reloj con el servidor y heartbeat. */
 export function connect({ role, query = () => ({}), onState, onEvent, onStatus, telemetry }) {
-  let ws, retry = 0, hb, closed = false;
+  let ws, retry = 0, hb, closed = false, everOpen = false, fails = 0;
   const api = { skew: 0, rtt: 0, open: false, serverNow: () => Date.now() + api.skew, send, close };
 
   function send(event, payload = {}) {
@@ -26,7 +26,7 @@ export function connect({ role, query = () => ({}), onState, onEvent, onStatus, 
     const proto = location.protocol === 'https:' ? 'wss' : 'ws';
     const qs = new URLSearchParams({ role, ...query() }).toString();
     ws = new WebSocket(`${proto}://${host}/ws?${qs}`);
-    ws.onopen = () => { retry = 0; api.open = true; onStatus && onStatus('open'); beat(); clearInterval(hb); hb = setInterval(beat, 5000); };
+    ws.onopen = () => { retry = 0; everOpen = true; fails = 0; const dlg = document.getElementById('srv-dialog'); if (dlg) dlg.remove(); api.open = true; onStatus && onStatus('open'); beat(); clearInterval(hb); hb = setInterval(beat, 5000); };
     ws.onmessage = (e) => {
       const m = JSON.parse(e.data);
       if (m.event === 'PONG') {
@@ -41,6 +41,9 @@ export function connect({ role, query = () => ({}), onState, onEvent, onStatus, 
     };
     ws.onclose = () => {
       api.open = false; clearInterval(hb); onStatus && onStatus('closed');
+      fails++;
+      const own = /^(localhost|127.|10.|192.168.|172.(1[6-9]|2d|3[01]).)/.test(location.hostname) || location.hostname.endsWith('.local');
+      if (!everOpen && fails >= 2 && (!own || localStorage.getItem('f35_server'))) showServerDialog();
       if (!closed) setTimeout(open, Math.min(4000, 400 * 2 ** retry++));
     };
     ws.onerror = () => {};
@@ -170,3 +173,22 @@ export async function joinBase() {
   document.addEventListener('DOMContentLoaded', () => document.body.appendChild(b));
   if (document.body) document.body.appendChild(b);
 })();
+
+/* ── Si la página está en hosting estático (Vercel) y no hay servidor, avisar en vez de quedarse "cargando" ── */
+export function showServerDialog(reason) {
+  if (document.getElementById('srv-dialog')) return;
+  let cur = ''; try { cur = localStorage.getItem('f35_server') || ''; } catch { /* nada */ }
+  const d = document.createElement('div');
+  d.id = 'srv-dialog';
+  d.innerHTML = `<div class="srv-card"><div style="font-size:3rem">🔌</div><h2>No hay servidor de la fiesta</h2>
+    <p>${reason || 'Esta página es solo la parte visual. El juego en tiempo real necesita el servidor de la fiesta encendido (Node + WebSocket), y Vercel no puede ejecutarlo.'}</p>
+    <label>Dirección del servidor<input id="srv-in" placeholder="mi-servidor.onrender.com" value="${cur}" /></label>
+    <button id="srv-ok" class="btn pink block">Conectar</button>
+    <small>Con el servidor corriendo en la laptop (<code>npm start</code>) usa la URL HTTPS del túnel, por ejemplo <code>algo.trycloudflare.com</code>. Guía en el README.</small></div>`;
+  document.body.appendChild(d);
+  d.querySelector('#srv-ok').onclick = () => {
+    const v = d.querySelector('#srv-in').value.trim().replace(/^https?:\/\//, '').replace(/\/.*$/, '');
+    try { v ? localStorage.setItem('f35_server', v) : localStorage.removeItem('f35_server'); } catch { /* nada */ }
+    location.reload();
+  };
+}

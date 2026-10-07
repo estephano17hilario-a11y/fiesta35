@@ -83,3 +83,7 @@ label.consent { display: flex; gap: 10px; align-items: flex-start; font-size: .8
 body.screen .fs-btn { opacity: .25; }
 body.guest .fs-btn { bottom: auto; top: calc(env(safe-area-inset-top) + 8px); right: 8px; width: 36px; height: 36px; font-size: 1.1rem; }
 @media (display-mode: fullscreen), (display-mode: standalone) { .fs-btn { display: none; } }
+#srv-dialog { position: fixed; inset: 0; z-index: 100000; background: rgba(5,6,15,.94); display: grid; place-items: center; padding: 16px; }
+.srv-card { max-width: 440px; width: 100%; background: #14173a; border: 1px solid var(--line); border-radius: 20px; padding: 22px; text-align: center; display: flex; flex-direction: column; gap: 10px; color: var(--txt); }
+.srv-card label { text-align: left; } .srv-card input { width: 100%; margin-top: 6px; padding: 12px; border-radius: 12px; border: 1px solid var(--line); background: rgba(0,0,0,.4); color: #fff; font-size: 1rem; }
+.srv-card small { color: var(--mut); }
