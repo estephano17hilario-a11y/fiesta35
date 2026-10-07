@@ -105,6 +105,8 @@ function EntradaP({ s }) {
       <div class="row gap wrap">
         <${Btn} c="pink" onClick=${() => ask('¿Cerrar la formación de equipos? Se emparejan los sobrantes, se forma el trío, se ubican parejas pendientes y se reequilibra.', () => cmd('ENTRADA_CLOSE'))} disabled=${e.closed}>🔒 Cerrar equipos<//>
         <${Btn} c="ghost" onClick=${() => cmd('ENTRADA_REOPEN')} disabled=${!e.closed}>Reabrir<//>
+        <${Btn} c="amber" onClick=${() => cmd('ENTRADA_PAIR_NOW')} title="Empareja ya a todos los que esperan, sin umbral de afinidad">💞 Emparejar a todos ya<//>
+        <${Btn} c="ghost" onClick=${() => cmd('ENTRADA_DEMO', { n: 6 })} title="Agrega 6 invitados falsos para probar solo">🤖 +6 jugadores de prueba<//>
         <a class="btn sm cyan" href="/qr" target="_blank">🧾 QR de entrada</a>
       </div>
       <h4>Pool (esperando pareja)</h4>

@@ -92,7 +92,7 @@ function PoolView({ s, g }) {
     <div class="card center-col pool">
       <div class="radar"><span class="animal-big">${s.me.animal.emoji}</span></div>
       <h2>Buscando a tu pareja ideal…</h2>
-      <p class="mut">Estamos cruzando tus gustos con los de los demás. ¡No cierres esta pantalla!</p>
+      ${g.alone ? html`<div class="card ice"><b>👋 Eres de los primeros</b><p>Para hacer pareja hace falta que entre <b>otra persona más</b>. Pídele a alguien que escanee el QR, o dile al anfitrión que te empareje o que añada jugadores de prueba.</p></div>` : html`<p class="mut">Estamos cruzando tus gustos con los de los demás. En cuanto haya alguien compatible te avisamos (vibra el celular). ¡No cierres esta pantalla!</p>`}
       <div class="chip">${g.counts.waiting} esperando · ${g.counts.pairs} parejas formadas</div>
       <div class="card pass"><small>PASE DE ENTRADA</small><b>✅ ${s.me.name}</b><span>${s.me.animal.emoji} ${s.me.animal.name}</span></div>
     </div>`;
@@ -135,7 +135,7 @@ function PairView({ s, g, link }) {
     <div class=${cx('stack', calling && 'blink-all')}>
       <div class="card pair-card center-col">
         <small class="mut">${g.trio ? '¡Tu trío!' : '¡Tu pareja es…!'}</small>
-        <div class="pair-faces">${others.map((o) => html`<div><span class="animal-big">${o.animal.emoji}</span><b>${o.name}</b></div>`)}</div>
+        <div class="pair-faces">${others.map((o) => html`<div><span class="animal-big">${o.animal.emoji}</span><b>${o.name}</b>${o.demo ? html`<small class="chip">🤖 de prueba · código <b>${o.code}</b></small>` : ''}</div>`)}</div>
         <p class="sm">Búscalo/a por la terraza: busca el emoji ${others.map((o) => o.animal.emoji).join(' ')}</p>
         <button class="btn amber block" onClick=${() => { vibrate(40); link.send('PAIR_CALL', {}); }}>📣 Llamar a mi pareja</button>
       </div>

@@ -204,6 +204,8 @@ module.exports = {
     if (ev === 'PAIR_INTRO') { // "Ya nos presentamos"
       if (!pl || !pl.pair || !s.met[pl.pair]) return true;
       apply(ctx, M.confirm(m, pl.pair, g.id, opts(ctx)));
+      const pr = m.pairs[pl.pair];
+      if (pr && !pr.team) for (const x of pr.members) { const og = ctx.guests.get(x); if (og && og.demo) apply(ctx, M.confirm(m, pl.pair, x, opts(ctx))); }
       return true;
     }
     if (ev === 'TEAM_RENAME') {
@@ -290,7 +292,37 @@ module.exports = {
       return true;
     }
     if (cmd === 'ENTRADA_REOPEN') { m.closed = false; return true; }
+    if (cmd === 'ENTRADA_DEMO') { this.addDemo(ctx, Math.max(1, Math.min(12, Number(a.n) || 6))); return this.admin(ctx, 'ENTRADA_PAIR_NOW', {}); }
+    if (cmd === 'ENTRADA_PAIR_NOW') { // empareja YA a todos los del pool (sin umbral de afinidad)
+      let pool = M.poolIds(m);
+      while (pool.length >= 2) {
+        const best = M.bestOfPool(m, pool[0], pool, 0, ecfg(ctx));
+        apply(ctx, [M.makePair(m, pool[0], best.id, best.sim, opts(ctx))]);
+        pool = M.poolIds(m);
+      }
+      return true;
+    }
     return false;
+  },
+
+  /** Jugadores de PRUEBA (sin celular) para ensayar el flujo o probar estando solo. Confirman solos cuando su pareja los confirma. */
+  addDemo(ctx, n) {
+    const NAMES = ['Valeria','Diego','Camila','Mateo','Sofía','Andrés','Lucía','Joaquín','Daniela','Sebastián','Fernanda','Nicolás'];
+    const FAVS = ['pizza','ceviche','guitarra','chocolate','karaoke','ajedrez'];
+    const qs = questions(ctx), m = mm(ctx);
+    for (let i = 0; i < n; i++) {
+      const base = NAMES[(ctx.guests.size + i) % NAMES.length];
+      const name = `${base} (prueba ${ctx.guests.size + 1})`;
+      const g = { id: U.uid(), token: U.token(), name, alias: base, fav: U.pick(FAVS), consent: true, demo: true, table: null, stage: 'pool',
+        animal: assignAnimal(ctx), meet: assignMeet(ctx), survey: cleanSurvey({ color: U.pick(COLORS), glasses: Math.random() < 0.3, relationship: U.pick(REL), innocence: U.pick(INN) }),
+        kahootScore: 0, createdAt: Date.now(), lastSeen: Date.now() };
+      const answers = Object.fromEntries(qs.map((q) => [q.id, Math.random() < 0.5 ? 'a' : 'b']));
+      const prof = M.profile(answers, qs);
+      g.answers = answers; g.vec = prof.vec; g.taste = prof.taste;
+      ctx.guests.set(g.id, g); ctx.db.saveGuest(g);
+      apply(ctx, M.addPlayer(m, { id: g.id, vec: prof.vec, taste: prof.taste, answers }, opts(ctx)));
+    }
+    ctx.feed(`🤖 ${n} jugadores de prueba añadidos`, 'join');
   },
 
   /** Deshace una pareja que aún no entró a un equipo (los dos vuelven al pool). */
@@ -383,13 +415,13 @@ module.exports = {
     const pl = m.players[g.id];
     const base = { stage: g.stage, meet: g.meet, closed: m.closed, counts: this.counts(ctx) };
     if (g.stage === 'test') return base;
-    if (g.stage === 'pool') return { ...base, since: pl && pl.since, waitMs: (cfg.waitSeconds || 60) * 1000 };
+    if (g.stage === 'pool') return { ...base, since: pl && pl.since, waitMs: (cfg.waitSeconds || 60) * 1000, alone: this.counts(ctx).waiting <= 1 };
     if (g.stage === 'paired' && pl && pl.pair) {
       const pair = m.pairs[pl.pair];
       const others = pair.members.filter((x) => x !== g.id).map((x) => ctx.guests.get(x)).filter(Boolean);
       const first = pl && m.players[others[0].id];
       return {
-        ...base, pairId: pair.id, others: others.map(label), found: !!s.met[pair.id], myIntro: !!pair.conf[g.id],
+        ...base, pairId: pair.id, others: others.map((o) => ({ ...label(o), ...(o.demo ? { demo: true, code: o.meet } : {}) })), found: !!s.met[pair.id], myIntro: !!pair.conf[g.id],
         introDone: pair.members.filter((x) => pair.conf[x]).length, introNeeded: pair.members.length,
         icebreaker: first ? M.icebreaker(pl, first, questions(ctx)) : null, sim: Math.round(pair.sim * 100),
         trio: pair.members.length > 2,

@@ -252,7 +252,10 @@ function multiplier(sizes, mine, cap = 1.5) {
   return Math.min(cap, Math.round((max / mine) * 100) / 100);
 }
 
+const bestOfPool = (mm, id, pool, minSim, cfg) => bestOf(mm, id, pool, minSim, cfg, Math.random);
+
 module.exports = {
+  bestOfPool,
   TRAITS, DEFAULTS, newMM, profile, similarity, icebreaker, addPlayer, tick, confirm, placeLate, closeTeams, rebalance,
   pickTeam, teamName, assignRoles, multiplier, poolIds, teamSize, makePair,
 };
