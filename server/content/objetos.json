@@ -1,0 +1,244 @@
+{
+  "objects": [
+    {
+      "name": "Cuchara",
+      "options": [
+        "Cuchara",
+        "Tenedor",
+        "Cucharón"
+      ]
+    },
+    {
+      "name": "Peine",
+      "options": [
+        "Peine",
+        "Cepillo de pelo",
+        "Rastrillo"
+      ]
+    },
+    {
+      "name": "Llave",
+      "options": [
+        "Llave",
+        "Abrelatas",
+        "Cortaúñas"
+      ]
+    },
+    {
+      "name": "Esponja",
+      "options": [
+        "Esponja",
+        "Trapo",
+        "Estropajo"
+      ]
+    },
+    {
+      "name": "Cepillo de dientes",
+      "options": [
+        "Cepillo de dientes",
+        "Lapicero",
+        "Pincel"
+      ]
+    },
+    {
+      "name": "Pelota de tenis",
+      "options": [
+        "Pelota de tenis",
+        "Naranja",
+        "Pelota de ping-pong"
+      ]
+    },
+    {
+      "name": "Guante",
+      "options": [
+        "Guante",
+        "Calcetín",
+        "Gorro"
+      ]
+    },
+    {
+      "name": "Moneda",
+      "options": [
+        "Moneda",
+        "Botón",
+        "Tapita de botella"
+      ]
+    },
+    {
+      "name": "Lápiz",
+      "options": [
+        "Lápiz",
+        "Palito chino",
+        "Bolígrafo"
+      ]
+    },
+    {
+      "name": "Vaso de plástico",
+      "options": [
+        "Vaso de plástico",
+        "Taza",
+        "Tupper"
+      ]
+    },
+    {
+      "name": "Cinta adhesiva",
+      "options": [
+        "Cinta adhesiva",
+        "Rollo de papel",
+        "Pulsera"
+      ]
+    },
+    {
+      "name": "Control remoto",
+      "options": [
+        "Control remoto",
+        "Calculadora",
+        "Celular viejo"
+      ]
+    },
+    {
+      "name": "Plátano de juguete",
+      "options": [
+        "Plátano de juguete",
+        "Pepino",
+        "Zanahoria"
+      ]
+    },
+    {
+      "name": "Peluche",
+      "options": [
+        "Peluche",
+        "Almohada pequeña",
+        "Guante de cocina"
+      ]
+    },
+    {
+      "name": "Cadena",
+      "options": [
+        "Cadena",
+        "Collar",
+        "Cordón"
+      ]
+    },
+    {
+      "name": "Pinza de ropa",
+      "options": [
+        "Pinza de ropa",
+        "Espátula",
+        "Tijera de plástico"
+      ]
+    },
+    {
+      "name": "Corbata",
+      "options": [
+        "Corbata",
+        "Bufanda",
+        "Cinturón"
+      ]
+    },
+    {
+      "name": "Dado",
+      "options": [
+        "Dado",
+        "Ficha de dominó",
+        "Borrador"
+      ]
+    },
+    {
+      "name": "Cepillo de ropa",
+      "options": [
+        "Cepillo de ropa",
+        "Escoba pequeña",
+        "Plumero"
+      ]
+    },
+    {
+      "name": "Colador",
+      "options": [
+        "Colador",
+        "Rallador",
+        "Cernidor"
+      ]
+    },
+    {
+      "name": "Mascarilla",
+      "options": [
+        "Mascarilla",
+        "Antifaz",
+        "Gorro de baño"
+      ]
+    },
+    {
+      "name": "Cono de helado de juguete",
+      "options": [
+        "Cono de helado de juguete",
+        "Mazorca de plástico",
+        "Zanahoria grande"
+      ]
+    },
+    {
+      "name": "Reloj",
+      "options": [
+        "Reloj",
+        "Brazalete",
+        "Cinta del pelo"
+      ]
+    },
+    {
+      "name": "Gancho de ropa",
+      "options": [
+        "Gancho de ropa",
+        "Alambre",
+        "Percha pequeña"
+      ]
+    },
+    {
+      "name": "Globo desinflado",
+      "options": [
+        "Globo desinflado",
+        "Guante de látex",
+        "Bolsa de té"
+      ]
+    },
+    {
+      "name": "Pelota antiestrés",
+      "options": [
+        "Pelota antiestrés",
+        "Mandarina",
+        "Bola de papel"
+      ]
+    },
+    {
+      "name": "Huevera",
+      "options": [
+        "Huevera",
+        "Bandeja de hielo",
+        "Molde de mantequilla"
+      ]
+    },
+    {
+      "name": "Libro",
+      "options": [
+        "Libro",
+        "Cuaderno",
+        "Revista"
+      ]
+    },
+    {
+      "name": "Gafas",
+      "options": [
+        "Gafas",
+        "Lupa",
+        "Monóculo"
+      ]
+    },
+    {
+      "name": "Cubo de Rubik",
+      "options": [
+        "Cubo de Rubik",
+        "Dado gigante",
+        "Hielo de plástico"
+      ]
+    }
+  ]
+}

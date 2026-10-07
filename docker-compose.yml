@@ -1,0 +1,24 @@
+# Fiesta 35 — sin base de datos externa: SQLite vive en el volumen "fiesta_data" (persiste entre reinicios).
+services:
+  app:
+    build: .
+    container_name: fiesta35_app
+    restart: always
+    ports: ["3000:3000"]
+    environment:
+      ADMIN_SECRET_KEY: "CAMBIA-ESTA-CLAVE"
+      JURY_PIN: "2468"
+      # PUBLIC_URL: "https://tu-dominio-o-tunel"   # para que los QR apunten a la URL pública (HTTPS)
+    volumes: ["fiesta_data:/data"]
+
+  # Túnel HTTPS gratis (cámara + sensores en iPhone/Android): docker compose --profile tunnel up -d
+  # La URL https://xxxx.trycloudflare.com aparece en:  docker logs fiesta35_tunnel
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: fiesta35_tunnel
+    profiles: ["tunnel"]
+    command: tunnel --no-autoupdate --url http://app:3000
+    depends_on: [app]
+
+volumes:
+  fiesta_data:

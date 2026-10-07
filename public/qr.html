@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiesta 35 · Códigos QR</title>
+  <script src="/vendor/qrcode.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; background: #f4f4fb; color: #12142b; }
+    header { padding: 18px 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; background: #12142b; color: #fff; }
+    header h1 { margin: 0; font-size: 20px; flex: 1; }
+    header input { padding: 8px 12px; border-radius: 8px; border: 0; min-width: 280px; font-size: 15px; }
+    header button { padding: 9px 16px; border-radius: 8px; border: 0; background: #ff2e93; color: #fff; font-weight: 700; cursor: pointer; }
+    .note { max-width: 900px; margin: 14px auto 0; padding: 0 24px; color: #555; font-size: 14px; }
+    main { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 24px; max-width: 1200px; margin: auto; }
+    .qr { background: #fff; border-radius: 18px; padding: 18px; text-align: center; border-top: 10px solid var(--c, #12142b); box-shadow: 0 4px 18px rgba(0,0,0,.08); break-inside: avoid; }
+    .qr.big { grid-column: 1 / -1; max-width: 520px; margin: auto; }
+    .qr h2 { margin: 6px 0 2px; font-size: 26px; }
+    .qr p { margin: 0 0 8px; color: #666; }
+    .qr svg { width: 100%; max-width: 280px; height: auto; }
+    .qr.big svg { max-width: 420px; }
+    .qr code { display: block; font-size: 12px; color: #777; word-break: break-all; margin-top: 6px; }
+    @media print { header, .note { display: none; } body { background: #fff; } main { padding: 0; } .qr { box-shadow: none; border: 1px solid #ddd; border-top: 10px solid var(--c); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 Códigos QR · Fiesta 35</h1>
+    <input id="base" placeholder="URL base (ej. https://mi-fiesta.trycloudflare.com)" />
+    <button onclick="window.print()">🖨️ Imprimir</button>
+  </header>
+  <div class="note">Imprime el QR de la <b>puerta</b>: el registro es único para todos (nombre → test → pareja → equipo). Los equipos se forman por afinidad, no por mesa. Si la dirección no es la correcta, escríbela arriba (HTTPS es obligatorio para cámara y sensores en iPhone).</div>
+  <main id="grid"></main>
+  <script>
+    function svg(text) {
+      const qr = qrcode(0, 'M'); qr.addData(text); qr.make();
+      const n = qr.getModuleCount(), m = 2; let d = '';
+      for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) d += `M${c + m},${r + m}h1v1h-1z`;
+      const s = n + m * 2;
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${s} ${s}" shape-rendering="crispEdges"><rect width="${s}" height="${s}" fill="#fff"/><path d="${d}"/></svg>`;
+    }
+    async function init() {
+      const info = await (await fetch('/api/info')).json();
+      const base0 = info.publicUrl || (['localhost', '127.0.0.1'].includes(location.hostname) ? (info.lanHttps[0] || info.lan[0] || location.origin) : location.origin);
+      const input = document.getElementById('base');
+      input.value = base0;
+      const draw = () => {
+        const b = input.value.replace(/\/$/, '');
+        const items = [
+          { cls: 'big', label: '🚪 Entrada · Jugadores', sub: 'Escanea → nombre → test → pareja → equipo', url: b + '/', color: '#ff2e93' },
+          { label: '📺 Pantalla grande', sub: 'Proyector / TV', url: b + '/pantalla', color: '#18f0ff' },
+          { label: '⚖️ Jurado', sub: '3 jurados · con PIN', url: b + '/jurado', color: '#8a5cff' },
+          { label: '🎥 Cámara', sub: 'Celular en el trípode', url: b + '/camara', color: '#ffb800' },
+          { label: '🎛️ Admin', sub: 'Anfitrión · con clave', url: b + '/admin', color: '#b6ff3b' },
+        ];
+        document.getElementById('grid').innerHTML = items.map((i) => `<div class="qr ${i.cls || ''}" style="--c:${i.color}"><h2>${i.label}</h2><p>${i.sub}</p>${svg(i.url)}<code>${i.url}</code></div>`).join('');
+      };
+      input.addEventListener('input', draw); draw();
+    }
+    init();
+  </script>
+</body>
+</html>

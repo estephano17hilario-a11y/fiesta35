@@ -1,0 +1,18 @@
+# Despliegue en Render (soporta WebSocket persistente; Vercel NO).  Render → New → Blueprint → este repo.
+services:
+  - type: web
+    name: fiesta35
+    runtime: docker
+    plan: starter            # el plan gratis duerme el servidor: no sirve para la fiesta
+    healthCheckPath: /health
+    envVars:
+      - key: ADMIN_SECRET_KEY
+        sync: false
+      - key: JURY_PIN
+        sync: false
+      - key: DATA_DIR
+        value: /data
+    disk:
+      name: fiesta-data
+      mountPath: /data
+      sizeGB: 1

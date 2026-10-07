@@ -1,0 +1,126 @@
+{
+  "questions": [
+    {
+      "id": "q1",
+      "kind": "taste",
+      "key": "comida",
+      "q": "Para cenar hoy…",
+      "a": {
+        "label": "Pizza",
+        "emoji": "🍕"
+      },
+      "b": {
+        "label": "Sushi",
+        "emoji": "🍣"
+      }
+    },
+    {
+      "id": "q2",
+      "kind": "trait",
+      "trait": "C",
+      "q": "Sábado perfecto",
+      "a": {
+        "label": "Plan armado",
+        "emoji": "📋",
+        "v": 1
+      },
+      "b": {
+        "label": "Improvisar",
+        "emoji": "🎲",
+        "v": 0
+      }
+    },
+    {
+      "id": "q3",
+      "kind": "trait",
+      "trait": "E",
+      "q": "En una fiesta…",
+      "a": {
+        "label": "Charla profunda con 1 persona",
+        "emoji": "🫂",
+        "v": 0
+      },
+      "b": {
+        "label": "Dar vueltas saludando",
+        "emoji": "👋",
+        "v": 1
+      }
+    },
+    {
+      "id": "q4",
+      "kind": "taste",
+      "key": "lugar",
+      "q": "Vacaciones soñadas",
+      "a": {
+        "label": "Playa",
+        "emoji": "🏖️"
+      },
+      "b": {
+        "label": "Montaña",
+        "emoji": "⛰️"
+      }
+    },
+    {
+      "id": "q5",
+      "kind": "trait",
+      "trait": "O",
+      "q": "Ciudad nueva: ¿dónde comes?",
+      "a": {
+        "label": "El restaurante de siempre",
+        "emoji": "🍽️",
+        "v": 0
+      },
+      "b": {
+        "label": "Lo desconocido",
+        "emoji": "🧭",
+        "v": 1
+      }
+    },
+    {
+      "id": "q6",
+      "kind": "trait",
+      "trait": "A",
+      "q": "Dos amigos discuten por qué pedir",
+      "a": {
+        "label": "Mediar",
+        "emoji": "🕊️",
+        "v": 1
+      },
+      "b": {
+        "label": "Que se arreglen solos",
+        "emoji": "🍿",
+        "v": 0
+      }
+    },
+    {
+      "id": "q7",
+      "kind": "taste",
+      "key": "horario",
+      "q": "Tu horario natural",
+      "a": {
+        "label": "Madrugar",
+        "emoji": "🌅"
+      },
+      "b": {
+        "label": "Trasnochar",
+        "emoji": "🌙"
+      }
+    },
+    {
+      "id": "q8",
+      "kind": "trait",
+      "trait": "S",
+      "q": "Se cae el WiFi en pleno juego…",
+      "a": {
+        "label": "Reírme",
+        "emoji": "😂",
+        "v": 1
+      },
+      "b": {
+        "label": "Estresarme",
+        "emoji": "😖",
+        "v": 0
+      }
+    }
+  ]
+}

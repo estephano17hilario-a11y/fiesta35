@@ -1,0 +1,61 @@
+{
+  "riddles": [
+    {
+      "text": "Tengo trompa pero no soy músico, mis orejas son enormes y dicen que nunca olvido.",
+      "answers": [
+        "elefante",
+        "elefantes",
+        "dumbo"
+      ],
+      "hint": "Es el animal terrestre más grande."
+    },
+    {
+      "text": "Duermo colgado de cabeza y salgo de noche; veo con los oídos.",
+      "answers": [
+        "murcielago",
+        "murcielagos",
+        "vampiro"
+      ],
+      "hint": "Es el único mamífero que vuela."
+    },
+    {
+      "text": "Soy el rey de la sabana: mi melena es mi corona y mi rugido se oye a kilómetros.",
+      "answers": [
+        "leon",
+        "leones",
+        "el leon"
+      ],
+      "hint": "Mufasa lo era."
+    },
+    {
+      "text": "Vivo en casa, ronroneo y siempre caigo de pie.",
+      "answers": [
+        "gato",
+        "gatito",
+        "minino",
+        "gata",
+        "michi",
+        "el gato"
+      ],
+      "hint": "Hace \"miau\"."
+    },
+    {
+      "text": "Tengo ocho brazos, tres corazones y tinta como escudo.",
+      "answers": [
+        "pulpo",
+        "pulpos",
+        "el pulpo"
+      ],
+      "hint": "Vive en el mar y es muy inteligente."
+    },
+    {
+      "text": "Con mi cuello larguísimo alcanzo las hojas más altas del árbol.",
+      "answers": [
+        "jirafa",
+        "jirafas",
+        "la jirafa"
+      ],
+      "hint": "Tiene manchas y es altísima."
+    }
+  ]
+}

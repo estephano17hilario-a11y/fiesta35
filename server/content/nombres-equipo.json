@@ -1,0 +1,48 @@
+{
+  "adj": {
+    "a": "Madrugadores",
+    "b": "Trasnochadores"
+  },
+  "noun": {
+    "comida": {
+      "a": "de la Pizza",
+      "b": "del Sushi"
+    },
+    "lugar": {
+      "a": "Playeros",
+      "b": "Montañistas"
+    }
+  },
+  "fallback": [
+    "Los Impostores con Estilo",
+    "Los Gatos Voladores",
+    "Los Desastres Organizados",
+    "Los Pandas Furiosos",
+    "Los Sin Rumbo",
+    "Los Tacos Cuánticos",
+    "Los Indomables",
+    "Los Chismosos Anónimos",
+    "Los Mapaches del Caos",
+    "Los Invencibles (casi)",
+    "Los Detectives Sin Pistas",
+    "Los Pingüinos en Fuga",
+    "Los Ñoños Felices",
+    "Los Rebeldes con Pausa",
+    "Los Aguacates Sabios",
+    "Los Dragones de Oficina",
+    "Los Crujientes",
+    "Los Tiburones Vegetarianos",
+    "Los Mil Usos",
+    "Los Sospechosos Habituales",
+    "Los Fantasmas del Karaoke",
+    "Los Camaleones",
+    "Los Dinos del Mate",
+    "Los Conejos Ninja",
+    "Los Cómplices del Postre",
+    "Los Cohetes Sin Frenos",
+    "Los Tucanes Hambrientos",
+    "Los Lobos con Wifi",
+    "Los Reyes del Brindis",
+    "Los Rayos Perezosos"
+  ]
+}

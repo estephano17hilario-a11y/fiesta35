@@ -1,0 +1,164 @@
+{
+  "animals": [
+    {
+      "emoji": "🦊",
+      "name": "Zorro"
+    },
+    {
+      "emoji": "🐼",
+      "name": "Panda"
+    },
+    {
+      "emoji": "🦁",
+      "name": "León"
+    },
+    {
+      "emoji": "🐯",
+      "name": "Tigre"
+    },
+    {
+      "emoji": "🐨",
+      "name": "Koala"
+    },
+    {
+      "emoji": "🐸",
+      "name": "Rana"
+    },
+    {
+      "emoji": "🐵",
+      "name": "Mono"
+    },
+    {
+      "emoji": "🐧",
+      "name": "Pingüino"
+    },
+    {
+      "emoji": "🦉",
+      "name": "Búho"
+    },
+    {
+      "emoji": "🦄",
+      "name": "Unicornio"
+    },
+    {
+      "emoji": "🐙",
+      "name": "Pulpo"
+    },
+    {
+      "emoji": "🦋",
+      "name": "Mariposa"
+    },
+    {
+      "emoji": "🐢",
+      "name": "Tortuga"
+    },
+    {
+      "emoji": "🦈",
+      "name": "Tiburón"
+    },
+    {
+      "emoji": "🐬",
+      "name": "Delfín"
+    },
+    {
+      "emoji": "🦒",
+      "name": "Jirafa"
+    },
+    {
+      "emoji": "🦓",
+      "name": "Cebra"
+    },
+    {
+      "emoji": "🐘",
+      "name": "Elefante"
+    },
+    {
+      "emoji": "🦔",
+      "name": "Erizo"
+    },
+    {
+      "emoji": "🦦",
+      "name": "Nutria"
+    },
+    {
+      "emoji": "🦥",
+      "name": "Perezoso"
+    },
+    {
+      "emoji": "🐿️",
+      "name": "Ardilla"
+    },
+    {
+      "emoji": "🦜",
+      "name": "Loro"
+    },
+    {
+      "emoji": "🦩",
+      "name": "Flamenco"
+    },
+    {
+      "emoji": "🐝",
+      "name": "Abeja"
+    },
+    {
+      "emoji": "🐞",
+      "name": "Mariquita"
+    },
+    {
+      "emoji": "🦀",
+      "name": "Cangrejo"
+    },
+    {
+      "emoji": "🐳",
+      "name": "Ballena"
+    },
+    {
+      "emoji": "🐊",
+      "name": "Cocodrilo"
+    },
+    {
+      "emoji": "🦘",
+      "name": "Canguro"
+    },
+    {
+      "emoji": "🐪",
+      "name": "Camello"
+    },
+    {
+      "emoji": "🦌",
+      "name": "Ciervo"
+    },
+    {
+      "emoji": "🐺",
+      "name": "Lobo"
+    },
+    {
+      "emoji": "🐻",
+      "name": "Oso"
+    },
+    {
+      "emoji": "🐰",
+      "name": "Conejo"
+    },
+    {
+      "emoji": "🐹",
+      "name": "Hámster"
+    },
+    {
+      "emoji": "🐷",
+      "name": "Cerdito"
+    },
+    {
+      "emoji": "🐮",
+      "name": "Vaca"
+    },
+    {
+      "emoji": "🐔",
+      "name": "Gallina"
+    },
+    {
+      "emoji": "🦆",
+      "name": "Pato"
+    }
+  ]
+}

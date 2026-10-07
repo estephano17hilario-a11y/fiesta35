@@ -1,0 +1,9 @@
+{
+  "name": "Fiesta 35",
+  "short_name": "Fiesta 35",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#070816",
+  "theme_color": "#070816"
+}

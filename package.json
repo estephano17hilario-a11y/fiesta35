@@ -1,0 +1,26 @@
+{
+  "name": "fiesta35",
+  "version": "1.0.0",
+  "description": "La fiesta como videojuego: plataforma web en tiempo real (jugadores, pantalla, admin, jurado, cámara) que corre en paralelo a un juego físico.",
+  "main": "server/index.js",
+  "private": true,
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "postinstall": "node scripts/vendor.js",
+    "start": "node server/index.js",
+    "start:https": "node server/index.js --https",
+    "dev": "node --watch server/index.js",
+    "bots": "node tools/bots.js",
+    "sim:35": "node tools/sim35.js",
+    "e2e": "node tools/e2e.js",
+    "admin": "node tools/adm.js"
+  },
+  "dependencies": {
+    "htm": "^3.1.1",
+    "qrcode-generator": "^1.4.4",
+    "selfsigned": "^5.0.0",
+    "ws": "^8.18.0"
+  }
+}

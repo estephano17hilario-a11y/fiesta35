@@ -1,0 +1,817 @@
+{
+  "meta": {
+    "example": true,
+    "eventName": "Fiesta 35",
+    "birthdayName": "Gianella",
+    "age": 35
+  },
+  "adminKey": "CumpleGianella35MasterKey",
+  "startingAura": 0,
+  "tables": [
+    {
+      "n": 1,
+      "name": "Los Sospechosos",
+      "color": "#ff2e93",
+      "emoji": "🕵️"
+    },
+    {
+      "n": 2,
+      "name": "Los Detectives",
+      "color": "#18f0ff",
+      "emoji": "🔎"
+    },
+    {
+      "n": 3,
+      "name": "Los Fugitivos",
+      "color": "#b6ff3b",
+      "emoji": "🏃"
+    },
+    {
+      "n": 4,
+      "name": "Los Cómplices",
+      "color": "#ffb800",
+      "emoji": "🤝"
+    },
+    {
+      "n": 5,
+      "name": "Los Testigos",
+      "color": "#8a5cff",
+      "emoji": "👀"
+    },
+    {
+      "n": 6,
+      "name": "Los Inocentes",
+      "color": "#ff6b3d",
+      "emoji": "😇"
+    }
+  ],
+  "phases": [
+    {
+      "id": "REGISTRATION",
+      "name": "Entrada",
+      "icon": "🚪",
+      "minutes": 25,
+      "time": "25 min"
+    },
+    {
+      "id": "CAJA_FUERTE",
+      "name": "Caja Fuerte",
+      "icon": "🔐",
+      "minutes": 20,
+      "time": "20 min"
+    },
+    {
+      "id": "DESACTIVA_BOMBA",
+      "name": "La Bomba",
+      "icon": "💣",
+      "minutes": 30,
+      "time": "30 min"
+    },
+    {
+      "id": "CIERRE_JUEGOS",
+      "name": "Cierre de los juegos",
+      "icon": "🎬",
+      "minutes": 15,
+      "time": "15 min"
+    },
+    {
+      "id": "HORA_LOCA",
+      "name": "Hora Loca",
+      "icon": "🪩",
+      "minutes": 0,
+      "time": "Descanso"
+    },
+    {
+      "id": "GIANELLA_CRIMEN",
+      "name": "¿Quién mató a Gianella?",
+      "icon": "🕵️",
+      "minutes": 45,
+      "time": "45 min"
+    },
+    {
+      "id": "DESCARGA_MADRE_KEIKO",
+      "name": "Descarga a la Madre de Keiko",
+      "icon": "⚡",
+      "minutes": 7,
+      "time": "7 min"
+    },
+    {
+      "id": "KAHOOT",
+      "name": "Kahoot: ¿Quién conoce más a Gianella?",
+      "icon": "🧠",
+      "minutes": 20,
+      "time": "20 min"
+    },
+    {
+      "id": "FARMEO_AURA",
+      "name": "Farmeo de Aura",
+      "icon": "🎰",
+      "minutes": 30,
+      "time": "30 min"
+    },
+    {
+      "id": "ESTATUA",
+      "name": "La Estatua Colectiva",
+      "icon": "🗿",
+      "minutes": 10,
+      "time": "10 min"
+    },
+    {
+      "id": "PIXEL_ART",
+      "name": "Pixel Art Secreto",
+      "icon": "🟦",
+      "minutes": 12,
+      "time": "12 min"
+    },
+    {
+      "id": "FOTO_LOCA",
+      "name": "La Foto Loca Exprés",
+      "icon": "📸",
+      "minutes": 5,
+      "time": "5 min"
+    },
+    {
+      "id": "CEREMONIA",
+      "name": "Ceremonia de Premiación",
+      "icon": "🏆",
+      "minutes": 0,
+      "time": "Final"
+    },
+    {
+      "id": "FIESTA_LIBRE",
+      "name": "Fiesta Libre",
+      "icon": "🎉",
+      "minutes": 0,
+      "time": "Hasta el amanecer"
+    }
+  ],
+  "caja": {
+    "baseValue": 100,
+    "failPenalty": 10,
+    "minValue": 20,
+    "hintCost": 10,
+    "cooldownSeconds": 20,
+    "orderBonus": [
+      30,
+      20,
+      10
+    ],
+    "showCorrectCount": true,
+    "freeHintsAfterMinutes": 15,
+    "forceAfterMinutes": 20,
+    "stickerDigit": 7,
+    "realEmojis": [
+      "🦄",
+      "🌵",
+      "🎲",
+      "🪁",
+      "🧲",
+      "🍩"
+    ],
+    "emojiGrid": [
+      "🦄",
+      "🌵",
+      "🎲",
+      "🪁",
+      "🧲",
+      "🍩",
+      "🍕",
+      "🎸",
+      "🚀",
+      "🐙",
+      "🌮",
+      "🦖",
+      "🍄",
+      "🎯",
+      "🧩",
+      "🪐",
+      "🍉",
+      "🥁",
+      "🕹️",
+      "🦩",
+      "🍦",
+      "🎈",
+      "🧸",
+      "🔮",
+      "🪀",
+      "🥑",
+      "🛸",
+      "🍿",
+      "🧿",
+      "🪅"
+    ],
+    "hints": {
+      "p1": "Pregúntale a la persona su cosa favorita y cuenta bien las letras (sin espacios).",
+      "p2": "Busca por toda la terraza: hay 6 emojis impresos escondidos. Cualquiera de los 6 sirve… pero si otro equipo ya abrió con ese, queda consumido.",
+      "p3": "La respuesta es un animal. Lee el acertijo despacio.",
+      "p4": "Piensa en el sticker que se mandó al grupo de WhatsApp… ¿qué número tenía?"
+    },
+    "manualPiece1": {},
+    "boxes": {
+      "1": {
+        "lockCode": "417",
+        "confirmCode": "3829"
+      },
+      "2": {
+        "lockCode": "532",
+        "confirmCode": "7160"
+      },
+      "3": {
+        "lockCode": "269",
+        "confirmCode": "4915"
+      },
+      "4": {
+        "lockCode": "884",
+        "confirmCode": "2057"
+      },
+      "5": {
+        "lockCode": "135",
+        "confirmCode": "6342"
+      },
+      "6": {
+        "lockCode": "706",
+        "confirmCode": "8473"
+      }
+    }
+  },
+  "bomba": {
+    "introSeconds": 15,
+    "voteSeconds": 10,
+    "gameValue": 100,
+    "juryWeight": 50,
+    "publicWeight": 50,
+    "charada": {
+      "seconds": 75
+    },
+    "objeto": {
+      "objects": 3,
+      "secondsPerObject": 20
+    },
+    "paparazzi": {
+      "seconds": 60,
+      "shots": 3
+    },
+    "karaoke": {
+      "seconds": 75,
+      "maxEmojis": 5,
+      "tailSeconds": 5
+    },
+    "fault": {
+      "points": 5,
+      "maxPerGame": 10,
+      "percent": 0.25,
+      "windowSeconds": 5
+    },
+    "sabotage": {
+      "cost": 5,
+      "maxPerRound": 3
+    },
+    "hornSeconds": 3
+  },
+  "crimen": {
+    "reward": 500,
+    "bonusWeaponMotive": 100,
+    "voteSeconds": 300,
+    "needVotes": 4,
+    "culprit": "s4",
+    "weapon": "w3",
+    "motive": "m5",
+    "suspects": [
+      {
+        "id": "s1",
+        "name": "Tío Beto",
+        "emoji": "🧔",
+        "alibi": "Dice que estaba en la parrilla, pero la parrilla estaba apagada."
+      },
+      {
+        "id": "s2",
+        "name": "Prima Camila",
+        "emoji": "💅",
+        "alibi": "Asegura que se tomaba selfies. Tiene 400, ninguna con hora."
+      },
+      {
+        "id": "s3",
+        "name": "El Vecino Chismoso",
+        "emoji": "🕶️",
+        "alibi": "Jura que solo pasaba por ahí… con una silla plegable y binoculares."
+      },
+      {
+        "id": "s4",
+        "name": "Chef Ramiro",
+        "emoji": "👨‍🍳",
+        "alibi": "Afirma que estaba revisando el horno. El horno estaba vacío."
+      },
+      {
+        "id": "s5",
+        "name": "DJ Misterio",
+        "emoji": "🎧",
+        "alibi": "No se movió de la cabina, pero la canción llevaba 12 minutos en loop."
+      },
+      {
+        "id": "s6",
+        "name": "Tía Rosario",
+        "emoji": "👵",
+        "alibi": "Estaba bailando salsa, según ella. Nadie la vio, pero se oían los aplausos."
+      }
+    ],
+    "weapons": [
+      {
+        "id": "w1",
+        "name": "Globo reventado",
+        "emoji": "🎈"
+      },
+      {
+        "id": "w2",
+        "name": "Cucharón gigante",
+        "emoji": "🥄"
+      },
+      {
+        "id": "w3",
+        "name": "Torta de tres leches",
+        "emoji": "🎂"
+      },
+      {
+        "id": "w4",
+        "name": "Cable de parlante",
+        "emoji": "🔌"
+      },
+      {
+        "id": "w5",
+        "name": "Piñata",
+        "emoji": "🪅"
+      }
+    ],
+    "motives": [
+      {
+        "id": "m1",
+        "name": "Celos por la torta"
+      },
+      {
+        "id": "m2",
+        "name": "Deuda de karaoke"
+      },
+      {
+        "id": "m3",
+        "name": "Quería ser el centro de atención"
+      },
+      {
+        "id": "m4",
+        "name": "Venganza por un meme viejo"
+      },
+      {
+        "id": "m5",
+        "name": "Le quitaron el último pedazo de pizza"
+      }
+    ],
+    "clues": [
+      {
+        "id": "c1",
+        "title": "Huellas de glaseado",
+        "emoji": "🧁",
+        "text": "Se hallaron huellas con glaseado de tres leches en la escena. Alguien manipuló la torta."
+      },
+      {
+        "id": "c2",
+        "title": "Gorro de cocina",
+        "emoji": "👨‍🍳",
+        "text": "Un gorro blanco y alto apareció detrás del sofá."
+      },
+      {
+        "id": "c3",
+        "title": "Cámara de la sala",
+        "emoji": "📹",
+        "text": "La cámara muestra al Tío Beto y a la Tía Rosario bailando salsa justo a la hora del incidente."
+      },
+      {
+        "id": "c4",
+        "title": "Ticket de pizzería",
+        "emoji": "🍕",
+        "text": "Ticket: 'pizza familiar, sin aceitunas'. A la caja le falta un pedazo… y alguien reclamó a gritos por él."
+      },
+      {
+        "id": "c5",
+        "title": "Selfie con hora",
+        "emoji": "🤳",
+        "text": "Prima Camila publicó una selfie a las 8:58 pm desde el baño, muy lejos de la escena."
+      },
+      {
+        "id": "c6",
+        "title": "Lista de reproducción",
+        "emoji": "🎶",
+        "text": "La música no se cortó ni un segundo: el DJ Misterio nunca abandonó la cabina."
+      },
+      {
+        "id": "c7",
+        "title": "Testigo ocular",
+        "emoji": "👀",
+        "text": "Alguien vio a una persona con delantal manchado salir apurada de la cocina."
+      },
+      {
+        "id": "c8",
+        "title": "Servilleta arrugada",
+        "emoji": "📝",
+        "text": "En una servilleta: 'ESE ÚLTIMO PEDAZO ERA MÍO'. Letra muy apretada y con mucha rabia."
+      }
+    ],
+    "voiceNotes": [
+      {
+        "id": "v1",
+        "from": "Tía Rosario",
+        "emoji": "👵",
+        "duration": "0:18",
+        "text": "Ay hijita, yo solo vi que Ramiro salió de la cocina con una cara muy sospechosa… y el delantal todo manchado."
+      },
+      {
+        "id": "v2",
+        "from": "DJ Misterio",
+        "emoji": "🎧",
+        "duration": "0:12",
+        "text": "Yo no me moví de la cabina, que lo diga todo el mundo. ¡Estaba mezclando como loco, no me metan en esto!"
+      },
+      {
+        "id": "v3",
+        "from": "El Vecino Chismoso",
+        "emoji": "🕶️",
+        "duration": "0:25",
+        "text": "Escuché un grito: '¡Era el último pedazo!' y después un golpe de bandeja. Yo no digo nada… pero lo digo."
+      },
+      {
+        "id": "v4",
+        "from": "Prima Camila",
+        "emoji": "💅",
+        "duration": "0:09",
+        "text": "Estaba en el baño haciéndome mi selfie, ¿cuál es el problema? Tengo la hora y todo."
+      },
+      {
+        "id": "v5",
+        "from": "Tío Beto",
+        "emoji": "🧔",
+        "duration": "0:21",
+        "text": "Bailando salsa con mi comadre. Ni idea. Pero esa torta tenía un golpe, eso sí lo vi."
+      }
+    ],
+    "testimonyTemplates": [
+      "Un testigo anónimo jura que {name} fue visto cerca de la escena con 'cara de culpable'.",
+      "Según el informe, {name} tenía manchas sospechosas en la ropa. Dice que era salsa.",
+      "{name} dijo 'yo no fui' ANTES de que alguien preguntara.",
+      "Las cámaras captaron a {name} saliendo del lugar caminando muy normal… demasiado normal.",
+      "{name} cambió de tema tres veces cuando le preguntaron por la torta.",
+      "Alguien escuchó a {name} susurrando: 'nadie se va a dar cuenta'."
+    ]
+  },
+  "keiko": {
+    "seconds": 20,
+    "perPlayerTarget": 200,
+    "threshold": 12,
+    "videoUrl": "",
+    "message": "¡La Madre de Keiko ha vuelto a la vida y tiene un mensaje para todos!"
+  },
+  "kahoot": {
+    "questionSeconds": 20,
+    "revealSeconds": 7,
+    "questions": [
+      {
+        "q": "¿Cuál es la comida favorita de Gianella?",
+        "options": [
+          "Ceviche",
+          "Pizza",
+          "Sushi",
+          "Pasta"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "¿Qué color elegiría Gianella para todo?",
+        "options": [
+          "Rosado",
+          "Azul",
+          "Negro",
+          "Verde"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "¿Cuál es su mayor miedo?",
+        "options": [
+          "Las arañas",
+          "Las alturas",
+          "Los payasos",
+          "La oscuridad"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "¿Qué haría Gianella un sábado perfecto?",
+        "options": [
+          "Dormir hasta tarde",
+          "Salir de fiesta",
+          "Maratón de series",
+          "Viajar"
+        ],
+        "correct": 3
+      },
+      {
+        "q": "¿Cuál es su canción de karaoke infaltable?",
+        "options": [
+          "Baladas románticas",
+          "Salsa",
+          "Rock en español",
+          "Reguetón"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "¿Qué app usa más en el celular?",
+        "options": [
+          "Instagram",
+          "WhatsApp",
+          "TikTok",
+          "Spotify"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "¿Cuál fue su peor corte de pelo?",
+        "options": [
+          "El de la secundaria",
+          "El de la universidad",
+          "El de la pandemia",
+          "Nunca tuvo uno malo"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "¿Qué mascota tendría si pudiera elegir cualquiera?",
+        "options": [
+          "Perro",
+          "Gato",
+          "Loro",
+          "Hámster"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "¿Qué dice siempre cuando llega tarde?",
+        "options": [
+          "'Ya estoy llegando'",
+          "'Hay mucho tráfico'",
+          "'Me quedé dormida'",
+          "'Salgo en cinco'"
+        ],
+        "correct": 3
+      },
+      {
+        "q": "¿Cuál es su bebida de siempre?",
+        "options": [
+          "Café",
+          "Té",
+          "Gaseosa",
+          "Jugo natural"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "¿En qué lugar soñaría vivir?",
+        "options": [
+          "Una playa",
+          "Una ciudad enorme",
+          "Las montañas",
+          "Otro país"
+        ],
+        "correct": 0
+      },
+      {
+        "q": "¿Cuál es su película favorita de todos los tiempos?",
+        "options": [
+          "Una comedia romántica",
+          "Una de terror",
+          "Una animada",
+          "Una de acción"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "¿Qué hace cuando nadie la ve?",
+        "options": [
+          "Baila frente al espejo",
+          "Canta en la ducha",
+          "Habla sola",
+          "Todas las anteriores"
+        ],
+        "correct": 3
+      },
+      {
+        "q": "¿Qué talento oculto tiene?",
+        "options": [
+          "Cocinar",
+          "Dibujar",
+          "Imitar voces",
+          "Contar chistes"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "¿Cuántos años cumple hoy Gianella?",
+        "options": [
+          "30",
+          "33",
+          "35",
+          "40"
+        ],
+        "correct": 2
+      }
+    ]
+  },
+  "aura": {
+    "questionSeconds": 20,
+    "duelMultiplier": 1.8,
+    "trivia": [
+      {
+        "q": "¿Cuántos huesos tiene el cuerpo humano adulto?",
+        "options": [
+          "106",
+          "206",
+          "306",
+          "256"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "¿Cuál es la capital de Australia?",
+        "options": [
+          "Sídney",
+          "Melbourne",
+          "Canberra",
+          "Perth"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "¿En qué año llegó el ser humano a la Luna?",
+        "options": [
+          "1959",
+          "1969",
+          "1979",
+          "1989"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "¿Cuántas cuerdas tiene una guitarra estándar?",
+        "options": [
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "correct": 2
+      },
+      {
+        "q": "¿Cuál es el planeta más grande del sistema solar?",
+        "options": [
+          "Saturno",
+          "Júpiter",
+          "Neptuno",
+          "Tierra"
+        ],
+        "correct": 1
+      },
+      {
+        "q": "¿Cuántos corazones tiene un pulpo?",
+        "options": [
+          "1",
+          "2",
+          "3",
+          "8"
+        ],
+        "correct": 2
+      }
+    ],
+    "roulette": [
+      {
+        "id": "rojo",
+        "label": "Rojo",
+        "color": "#ff2d55",
+        "weight": 45,
+        "mult": 2
+      },
+      {
+        "id": "azul",
+        "label": "Azul",
+        "color": "#18a8ff",
+        "weight": 45,
+        "mult": 2
+      },
+      {
+        "id": "oro",
+        "label": "Oro",
+        "color": "#ffc400",
+        "weight": 10,
+        "mult": 5
+      }
+    ]
+  },
+  "estatua": {
+    "rounds": 3,
+    "readySeconds": 6,
+    "holdSeconds": 15,
+    "maxSeconds": 50,
+    "tolerance": 0.9,
+    "threshold": 1.8,
+    "distractions": true
+  },
+  "pixel": {
+    "cols": 14,
+    "rows": 10,
+    "turnSeconds": 120,
+    "useTurns": true,
+    "revealThreshold": 130,
+    "background": "#12163a",
+    "revealImageUrl": "",
+    "palette": {
+      ".": {
+        "name": "Azul noche",
+        "hex": "#12163a"
+      },
+      "Y": {
+        "name": "Amarillo",
+        "hex": "#ffd23f"
+      },
+      "O": {
+        "name": "Naranja",
+        "hex": "#ff8a1f"
+      },
+      "W": {
+        "name": "Blanco",
+        "hex": "#ffffff"
+      },
+      "P": {
+        "name": "Rosado",
+        "hex": "#ff4fa3"
+      },
+      "B": {
+        "name": "Marrón",
+        "hex": "#8a4b2a"
+      },
+      "C": {
+        "name": "Celeste",
+        "hex": "#18f0ff"
+      },
+      "R": {
+        "name": "Rojo",
+        "hex": "#ff3b3b"
+      }
+    },
+    "image": [
+      "......YY......",
+      "......OO......",
+      "......WW......",
+      "..WWWWWWWWWW..",
+      "..PPPPPPPPPP..",
+      "..PPCPPCPPCP..",
+      ".BBBBBBBBBBBB.",
+      ".BBYBBYBBYBBB.",
+      "CCCCCCCCCCCCCC",
+      ".............."
+    ]
+  },
+  "foto": {
+    "readSeconds": 60,
+    "countdownSeconds": 10,
+    "posePauseSeconds": 6,
+    "finalPose": "¡Todos juntos, abrazados, gritando 'FELIZ CUMPLE GIANELLA'!",
+    "glassesMission": "Mira fijamente al techo con la boca abierta, en shock total.",
+    "blackMission": "Ponte de rodillas en el piso fingiendo implorar clemencia.",
+    "familyMission": "Señala a Gianella acusándola con el dedo, con cara de juez.",
+    "random": [
+      "Haz la pose del héroe de cómic mirando al lente.",
+      "Pon cara de que acabas de ver un fantasma.",
+      "Haz de cuenta que estás sosteniendo el planeta con una mano.",
+      "Abraza al invitado más cercano como si fuera tu mejor amigo perdido.",
+      "Cubre tu boca con las dos manos como en un chisme gigante.",
+      "Haz la pose de modelo de revista, con mirada intensa.",
+      "Finge que estás tomando una selfie invisible.",
+      "Haz el baile de la victoria congelado en el aire.",
+      "Pon cara de que la torta te acaba de hablar.",
+      "Levanta una ceja y cruza los brazos como jefe de la mafia.",
+      "Finge un desmayo elegante apoyándote en el de al lado.",
+      "Haz de cuenta que eres un robot que se está apagando."
+    ]
+  },
+  "juryPin": "2468",
+  "jurors": 3,
+  "entrada": {
+    "T": 0.8,
+    "Tmin": 0.6,
+    "waitSeconds": 60,
+    "tasteBonus": 0.03,
+    "cap": 6,
+    "soft": 7,
+    "minTeam": 4,
+    "pairPoints": 10,
+    "selfiePoints": 10,
+    "welcomePoints": 15,
+    "minSelfieMembers": 4,
+    "consentText": "Las fotos y videos de la fiesta saldrán en la pantalla grande. Al entrar aceptas que aparezcas en ellos."
+  }
+}
