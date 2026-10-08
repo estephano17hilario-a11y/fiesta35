@@ -86,13 +86,13 @@ export function TestFlow({ s, link }) {
 }
 
 /* ───────── 3. Pool y pareja ───────── */
-function PoolView({ s, g }) {
+function PoolView({ s, g, link }) {
   useTick(1000);
   return html`
     <div class="card center-col pool">
       <div class="radar"><span class="animal-big">${s.me.animal.emoji}</span></div>
       <h2>Buscando a tu pareja ideal…</h2>
-      ${g.alone ? html`<div class="card ice"><b>👋 Eres de los primeros</b><p>Para hacer pareja hace falta que entre <b>otra persona más</b>. Pídele a alguien que escanee el QR, o dile al anfitrión que te empareje o que añada jugadores de prueba.</p></div>` : html`<p class="mut">Estamos cruzando tus gustos con los de los demás. En cuanto haya alguien compatible te avisamos (vibra el celular). ¡No cierres esta pantalla!</p>`}
+      ${g.alone ? html`<div class="card ice"><b>👋 Eres de los primeros</b><p>Para hacer pareja hace falta que entre <b>otra persona más</b>. Pídele a alguien que escanee el QR o dile al anfitrión que te empareje.</p>${g.canDemo && html`<button class="btn amber block" onClick=${() => link.send('SOLO_DEMO', {})}>🤖 ¿Probando solo? Emparéjame con un jugador de prueba</button>`}</div>` : html`<p class="mut">Estamos cruzando tus gustos con los de los demás. En cuanto haya alguien compatible te avisamos (vibra el celular). ¡No cierres esta pantalla!</p>`}
       <div class="chip">${g.counts.waiting} esperando · ${g.counts.pairs} parejas formadas</div>
       <div class="card pass"><small>PASE DE ENTRADA</small><b>✅ ${s.me.name}</b><span>${s.me.animal.emoji} ${s.me.animal.name}</span></div>
     </div>`;
@@ -217,7 +217,7 @@ function TeamView({ s, g, link }) {
 }
 
 export function EntradaView({ s, g, link }) {
-  if (g.stage === 'pool') return html`<${PoolView} s=${s} g=${g} />`;
+  if (g.stage === 'pool') return html`<${PoolView} s=${s} g=${g} link=${link} />`;
   if (g.stage === 'paired') return html`<${PairView} s=${s} g=${g} link=${link} />`;
   if (g.stage === 'team' && g.team) return html`<${TeamView} s=${s} g=${g} link=${link} />`;
   return html`<div class="boot"><div class="spinner"></div></div>`;

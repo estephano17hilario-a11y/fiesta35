@@ -180,6 +180,12 @@ module.exports = {
     }
 
     const pl = m.players[g.id];
+    if (ev === 'SOLO_DEMO') { // "Probar solo": un jugador de prueba hace pareja contigo (solo si estás solo y está permitido)
+      if (g.stage !== 'pool' || ctx.config.entrada.soloDemo === false || this.counts(ctx).waiting > 1) return true;
+      this.addDemo(ctx, 1);
+      this.admin(ctx, 'ENTRADA_PAIR_NOW', {});
+      return true;
+    }
     if (ev === 'PAIR_CALL') { // "Llamar a mi pareja": vibra y parpadea su celular
       if (!pl || !pl.pair) return true;
       const now = Date.now();
@@ -415,7 +421,7 @@ module.exports = {
     const pl = m.players[g.id];
     const base = { stage: g.stage, meet: g.meet, closed: m.closed, counts: this.counts(ctx) };
     if (g.stage === 'test') return base;
-    if (g.stage === 'pool') return { ...base, since: pl && pl.since, waitMs: (cfg.waitSeconds || 60) * 1000, alone: this.counts(ctx).waiting <= 1 };
+    if (g.stage === 'pool') return { ...base, since: pl && pl.since, waitMs: (cfg.waitSeconds || 60) * 1000, alone: this.counts(ctx).waiting <= 1, canDemo: ctx.config.entrada.soloDemo !== false };
     if (g.stage === 'paired' && pl && pl.pair) {
       const pair = m.pairs[pl.pair];
       const others = pair.members.filter((x) => x !== g.id).map((x) => ctx.guests.get(x)).filter(Boolean);

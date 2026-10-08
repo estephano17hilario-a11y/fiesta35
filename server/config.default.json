@@ -812,6 +812,7 @@
     "selfiePoints": 10,
     "welcomePoints": 15,
     "minSelfieMembers": 4,
-    "consentText": "Las fotos y videos de la fiesta saldrán en la pantalla grande. Al entrar aceptas que aparezcas en ellos."
+    "consentText": "Las fotos y videos de la fiesta saldrán en la pantalla grande. Al entrar aceptas que aparezcas en ellos.",
+    "soloDemo": true
   }
 }

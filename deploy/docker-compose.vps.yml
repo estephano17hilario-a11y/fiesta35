@@ -1,0 +1,22 @@
+# Fiesta 35 en un VPS: app + HTTPS automático (Caddy + Let's Encrypt). Uso (en la carpeta del repo):
+#   DOMAIN=fiesta.midominio.com ADMIN_SECRET_KEY=mi-clave JURY_PIN=1234 docker compose -f deploy/docker-compose.vps.yml up -d --build
+services:
+  app:
+    build: ..
+    restart: always
+    environment:
+      ADMIN_SECRET_KEY: ${ADMIN_SECRET_KEY:?define ADMIN_SECRET_KEY}
+      JURY_PIN: ${JURY_PIN:-2468}
+      PUBLIC_URL: https://${DOMAIN:?define DOMAIN}
+      DATA_DIR: /data
+    volumes: ["fiesta_data:/data"]
+  caddy:
+    image: caddy:2
+    restart: always
+    ports: ["80:80", "443:443"]
+    command: caddy reverse-proxy --from ${DOMAIN} --to app:3000
+    volumes: ["caddy_data:/data"]
+    depends_on: [app]
+volumes:
+  fiesta_data:
+  caddy_data:
