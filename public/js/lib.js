@@ -19,6 +19,26 @@ export function connect({ role, query = () => ({}), onState, onEvent, onStatus, 
   function beat() {
     send('HEARTBEAT', { t0: Date.now(), rtt: api.rtt, ...(telemetry ? telemetry() : {}), visible: !document.hidden });
   }
+  /** Si en 7 s no llega el estado, la pantalla no se queda "cargando" para siempre: explica qué pasa y deja elegir servidor. */
+  function noServerHelp() {
+    if (api.gotState || closed || document.getElementById('f35-noserver')) return;
+    const saved = (() => { try { return localStorage.getItem('f35_server') || ''; } catch { return ''; } })();
+    const box = document.createElement('div');
+    box.id = 'f35-noserver';
+    box.style.cssText = 'position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(7,8,22,.96);color:#fff;font:16px system-ui,sans-serif;text-align:center';
+    box.innerHTML = '<div style="max-width:420px"><div style="font-size:48px">📡</div><h2 style="margin:8px 0">No hay conexión con el servidor de la fiesta</h2>'
+      + '<p style="opacity:.8">Esta página es solo la parte visual. Necesita el servidor (Render, Fly, Railway o tu laptop) para funcionar. Escribe su dirección:</p>'
+      + `<input id="f35-srv" placeholder="mi-servidor.onrender.com" value="${saved.replace(/"/g, '')}" style="width:100%;padding:12px;border-radius:10px;border:0;margin:8px 0;font-size:16px;box-sizing:border-box" />`
+      + '<button id="f35-go" style="width:100%;padding:12px;border-radius:10px;border:0;background:#ff2e93;color:#fff;font-size:16px;font-weight:700">Conectar</button>'
+      + '<p style="opacity:.6;font-size:13px">Seguimos reintentando en segundo plano.</p></div>';
+    document.body.appendChild(box);
+    box.querySelector('#f35-go').onclick = () => {
+      const v = box.querySelector('#f35-srv').value.trim().replace(/^(https?|wss?):\/\//, '').replace(/\/+$/, '');
+      try { v ? localStorage.setItem('f35_server', v) : localStorage.removeItem('f35_server'); } catch { /* sin storage */ }
+      location.reload();
+    };
+  }
+  setTimeout(noServerHelp, 7000);
   function open() {
     // Frontend en hosting estático (p. ej. Vercel) + servidor en otro lado: ?server=mi-servidor.onrender.com (se recuerda)
     let host = location.host;
@@ -36,6 +56,8 @@ export function connect({ role, query = () => ({}), onState, onEvent, onStatus, 
         api.skewSet = true;
       } else if (m.event === 'SYNC_STATE') {
         if (!api.skewSet) api.skew = m.timestamp - Date.now();
+        api.gotState = true;
+        const h = document.getElementById('f35-noserver'); if (h) h.remove();
         onState(m.payload);
       } else onEvent && onEvent(m.event, m.payload);
     };
